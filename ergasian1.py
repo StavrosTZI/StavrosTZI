@@ -65,5 +65,6 @@ for epa in range(5):
   for epa2 in templi:
     limax[epa] += epa2
 print(limax)
+fo.close
   
  
