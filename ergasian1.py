@@ -1,8 +1,9 @@
-eis=input("Δηλώστε το όνομα ή την διαδρομή του αρχείου: " )
-with open(eis,"r+") as keim:
-  spkeim=keim.split()
-  lmax1=lmax2=lmax3=lmax4=lmax5=0
-  max1=max2=max3=max4=max5="bl"
+eis=input("Δηλώστε το όνομα ή την διαδρομή του αρχείου: " )#το προγραμμα δουλευει για κειμενα στα Αγγλικα
+fo=open(eis,"r", encoding="utf8",)
+keim=fo.read().rstrip("\n")
+spkeim=keim.split()
+lmax1=lmax2=lmax3=lmax4=lmax5=0#lmax:μηκος μεγιστων
+max1=max2=max3=max4=max5="bl"#μεγιστες
 for epa in range(len(spkeim)):
   if len(spkeim[epa])>lmax1:
     max1=(spkeim[epa])
@@ -19,16 +20,16 @@ for epa in range(len(spkeim)):
   elif len(spkeim[epa])>lmax5:
     max5=(spkeim[epa])
     lmax5=len(spkeim[epa])
-limax=[max1,max2,max3,max4,max5]#limax:listmax
+limax=[max1,max2,max3,max4,max5]#limax:λιστα μεγιστων
 
 for epa in range(5):
-  temp=limax[epa]
-  templi=list(temp)
-  tlen=len(temp)
+  temp=limax[epa]#temp:λεξη
+  templi=list(temp)#templi:λιστα με τα γραμματα της λεξης
+  tlen=len(temp)#tlen:μεγεθος λεξης
   
   a=e=i=o=u=y=0
   for epa2 in range(tlen):#καθε φωνηεν εχει και μια μεταβλητη int με τον αριθμο που εμφανιζεται 
-    x=templi[epa2]
+    x=templi[epa2]#βρισκω ποσες φορες επαναλαμβανεται το καθε φωνηεν 
     if x=="a":
       a=1+a
     if x=="e":
@@ -41,7 +42,7 @@ for epa in range(5):
       u=1+u
     if x=="y":
       y=1+y
-  if a != 0:
+  if a != 0:#αφερω το καθε φωνηεν ξεχωριστα
     for epa2 in range(a):
       templi.remove("a")
   if e != 0:
